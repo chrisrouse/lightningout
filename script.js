@@ -4,17 +4,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const widgetContainer = document.getElementById('flowWidgetContainer');
     const flowContent = document.getElementById('flowContent');
     
-    // Configuration
+    // Configuration for Experience Site with Guest Access
     const sfConfig = {
         lightning: {
-            endpoint: 'https://YOUR_SALESFORCE_DOMAIN.my.salesforce.com',
+            endpoint: 'https://icevonline--full.sandbox.my.site.com/s',
             componentName: 'c:flowContainer',
-            appName: 'c:flowOutApp',
-            authParams: {
-                client_id: 'YOUR_CONNECTED_APP_CONSUMER_KEY',
-                redirect_uri: window.location.origin,
-                scope: 'api'
-            }
+            appName: 'c:flowOutApp'
+            // No authParams needed for guest access through Experience Site
         }
     };
     
@@ -61,8 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
             function() {
                 createFlowComponent();
             },
-            lightning.endpoint,
-            lightning.authParams
+            lightning.endpoint
+            // No auth parameters for guest access
         );
     }
     
@@ -72,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $Lightning.createComponent(
             lightning.componentName,
             {
-                flowName: 'Your_Flow_API_Name' // Replace with your actual flow API name
+                flowName: 'Lightning_Out_Contact_Form' // Your actual Flow API name
             },
             flowContent,
             function(cmp) {
