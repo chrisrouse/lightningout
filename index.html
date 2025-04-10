@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salesforce Flow Widget Test</title>
+    <title>Salesforce Flow Integration</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Salesforce Flow Widget Test</h1>
-    <p>This is your regular website content. The flow will appear as a floating widget. (Edit 6:30pm)</p>
-    
-    <button id="openFlowBtn">Open Flow Widget</button>
-
-    <!-- Widget Container -->
-    <div id="flowWidgetContainer" class="widget-container hidden">
-        <div class="widget-header">
-            <h3>Quick Form</h3>
-            <button id="closeFlowBtn" class="close-btn">×</button>
-        </div>
-        <div id="flowContent" class="widget-content"></div>
-    </div>
+    <h1>Salesforce Flow Integration</h1>
+    <div id="flowContainer"></div>
     
     <!-- Salesforce Lightning Out -->
-<script src="https://icevonline--full.sandbox.my.site.com/s/sfsites/aura/javascript/lightning/lightning.out.js"></script>    
-    <script src="script.js"></script>
+    <script src="https://icevonline--full.sandbox.my.site.com/s/sfsites/aura/javascript/lightning/lightning.out.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $Lightning.use(
+                'c:flowOutApp',
+                function() {
+                    $Lightning.createComponent(
+                        'c:flowContainer',
+                        { flowName: 'Lightning_Out_Contact_Form' },
+                        'flowContainer',
+                        function(cmp) {
+                            console.log('Flow component created');
+                        }
+                    );
+                },
+                'https://icevonline--full.sandbox.my.site.com/s'
+            );
+        });
+    </script>
 </body>
 </html>
