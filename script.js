@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuration for Experience Site with Guest Access
     const sfConfig = {
         lightning: {
-            endpoint: 'https://icevonline--full.sandbox.my.site.com/s',
+            endpoint: 'https://icevonline--full.sandbox.my.site.com/s/lightning/lightning.out.js',
             componentName: 'c:flowContainer',
             appName: 'c:flowOutApp'
             // No authParams needed for guest access through Experience Site
